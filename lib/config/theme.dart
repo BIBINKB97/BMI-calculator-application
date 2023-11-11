@@ -11,8 +11,9 @@ var lightTheme = ThemeData(
       primary: lPrimaryColor,
     ));
 
-var darkTheme = ThemeData(useMaterial3: true,
-colorScheme: ColorScheme.light(
+var darkTheme = ThemeData(
+    useMaterial3: true,
+    colorScheme: ColorScheme.dark(
       background: dBgColor,
       onBackground: dFontColor,
       primaryContainer: dDivColor,
