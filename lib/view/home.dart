@@ -1,4 +1,5 @@
 import 'package:bmi_calculator/view/widgets/theme_changer_btn.dart';
+import 'package:bmi_calculator/view/widgets/weight_and_age_card.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -59,7 +60,7 @@ class HomePage extends StatelessWidget {
                           height: 50,
                           width: 120,
                           decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: Colors.blue,
                               borderRadius: BorderRadius.circular(10)),
                           child: Center(child: Text('Female')),
                         ),
@@ -69,6 +70,41 @@ class HomePage extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          SizedBox(
+            height: 40,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Container(
+                width: 170,
+                height: 400,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white),
+                child: Center(child: Text('height')),
+              ),
+              Column(
+                children: [
+                  WeightAndAgeCard(title: 'weight', weight: "70"),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  WeightAndAgeCard(title: 'Age', weight: "20"),
+                ],
+              )
+            ],
+          ),
+          SizedBox(
+            height: 40,
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 20),
+            height: 50,
+            decoration: BoxDecoration(
+                color: Colors.blue, borderRadius: BorderRadius.circular(10)),
+            child: Center(child: Text('Lets go')),
           ),
         ],
       ),
