@@ -1,4 +1,8 @@
-import 'package:bmi_calculator/view/widgets/bottom_button.dart';
+import 'package:bmi_calculator/calculator.dart';
+import 'package:bmi_calculator/config/constants.dart';
+import 'package:bmi_calculator/view/results.dart';
+import 'package:bmi_calculator/view/widgets/custom_button.dart';
+import 'package:bmi_calculator/view/widgets/submit_button.dart';
 import 'package:bmi_calculator/view/widgets/custon_card.dart';
 import 'package:bmi_calculator/view/widgets/icon_content.dart';
 import 'package:bmi_calculator/view/widgets/theme_changer_btn.dart';
@@ -40,38 +44,38 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                 child: ReusableCard(
-                    onPress: () {
+                 child: CustomCard(
+                    onPressed: () {
                       setState(() {
                         selectedGender = Gender.male;
                       });
                     },
-                    colour: selectedGender == Gender.male
+                    cusColor: selectedGender == Gender.male
                         ? kActiveCardColor
                         : kInactiveCardColor,
-                    cardChild: IconContent(FontAwesomeIcons.mars, 'MALE'),
+                    customCardChild: IconContent(FontAwesomeIcons.mars, label: 'MALE'),
                   ),
                 ),
                 Expanded(
-                  child: ReusableCard(
-                    onPress: () {
+                  child: CustomCard(
+                    onPressed: () {
                       setState(() {
                         selectedGender = Gender.female;
                       });
                     },
-                    colour: selectedGender == Gender.female
+                    cusColor: selectedGender == Gender.female
                         ? kActiveCardColor
                         : kInactiveCardColor,
-                    cardChild: IconContent(FontAwesomeIcons.venus, 'FEMALE'),
+                    customCardChild: IconContent(FontAwesomeIcons.venus, label: 'FEMALE'),
                   ),
                 )
               ],
             ),
           ),
           Expanded(
-            child: ReusableCard(
-              colour: kActiveCardColor,
-              cardChild: Column(
+            child: CustomCard(
+              cusColor: kActiveCardColor,
+              customCardChild: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text(
@@ -124,9 +128,9 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(
-                    colour: kActiveCardColor,
-                    cardChild: Column(
+                  child: CustomCard(
+                    cusColor: kActiveCardColor,
+                    customCardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
@@ -140,7 +144,7 @@ class _HomePageState extends State<HomePage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            RoundIconButton(
+                            CustomButton(
                               icon: FontAwesomeIcons.plus,
                               onPressed: () {
                                 setState(() {
@@ -151,7 +155,7 @@ class _HomePageState extends State<HomePage> {
                             SizedBox(
                               width: 10.0,
                             ),
-                            RoundIconButton(
+                            CustomButton(
                               icon: FontAwesomeIcons.minus,
                               onPressed: () {
                                 setState(() {
@@ -166,9 +170,9 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Expanded(
-                  child: ReusableCard(
-                    colour: kActiveCardColor,
-                    cardChild: Column(
+                  child: CustomCard(
+                    cusColor: kActiveCardColor,
+                    customCardChild: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
@@ -182,7 +186,7 @@ class _HomePageState extends State<HomePage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            RoundIconButton(
+                            CustomButton(
                               icon: FontAwesomeIcons.plus,
                               onPressed: () {
                                 setState(() {
@@ -193,7 +197,7 @@ class _HomePageState extends State<HomePage> {
                             SizedBox(
                               width: 10.0,
                             ),
-                            RoundIconButton(
+                            CustomButton(
                               icon: FontAwesomeIcons.minus,
                               onPressed: () {
                                 setState(() {
@@ -210,7 +214,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          BottomButton(buttonTitle: 'CALCULATE',onTap: (){
+          SubmitButton(buttonTitle: 'CALCULATE',onTap: (){
             Calculator calc = Calculator(height: height, weight: weight);
             Navigator.push(context, MaterialPageRoute(builder: (context) => ResultsPage(
               bmiResult: calc.calculateBMI().toString(),

@@ -3,9 +3,9 @@
 import 'package:bmi_calculator/config/constants.dart';
 import 'package:flutter/material.dart';
 
-class BottomButton extends StatelessWidget {
+class SubmitButton extends StatelessWidget {
 
-  BottomButton({required this.buttonTitle,this.onTap});
+  SubmitButton({required this.buttonTitle,this.onTap});
 
   late final VoidCallback? onTap;
   late final String buttonTitle;
