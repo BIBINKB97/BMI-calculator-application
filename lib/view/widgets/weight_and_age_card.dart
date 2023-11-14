@@ -1,56 +1,26 @@
 import 'package:flutter/material.dart';
 
-class WeightAndAgeCard extends StatelessWidget {
-  final String title;
-  final String weight;
-  const WeightAndAgeCard({
-    super.key,
-    required this.title,
-    required this.weight,
+class CustomCard extends StatelessWidget {
+  final Color cusColor;
+  final Widget? customCardChild;
+  final VoidCallback? onPressed;
+
+  CustomCard({
+    this.cusColor = const Color(0xff1d1f33),
+    this.customCardChild,
+    this.onPressed,
   });
 
   @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 160,
-      height: 190,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10), color: Colors.white),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          
-          Text(
-            title,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+  Widget build(BuildContext context) => GestureDetector(
+        onTap: onPressed,
+        child: Container(
+          margin:  EdgeInsets.all(15.0),
+          decoration: BoxDecoration(
+            color: cusColor,
+            borderRadius: BorderRadius.circular(10.0),
           ),
-          Text(
-            weight,
-            style: TextStyle(fontSize: 55, fontWeight: FontWeight.w600),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.lightGreen),
-                child: Center(child: Icon(Icons.minimize)),
-              ),
-              Container(
-                height: 40,
-                width: 40,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.lightGreen),
-                child: Icon(Icons.add),
-              )
-            ],
-          )
-        ],
-      ),
-    );
-  }
+          child: customCardChild,
+        ),
+      );
 }

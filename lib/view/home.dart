@@ -8,12 +8,22 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          'BMI calculator',
+          style: TextStyle(
+              fontSize: 25, letterSpacing: 1, fontWeight: FontWeight.w800),
+        ),
+        actions: [
+          ThemeChangeBtn(),
+        ],
+      ),
       body: ListView(
         children: [
           SizedBox(
             height: 10,
           ),
-          ThemeChangeBtn(),
           SizedBox(
             height: 30,
           ),
@@ -22,22 +32,6 @@ class HomePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  'welcome',
-                  style: TextStyle(
-                    fontSize: 17,
-                  ),
-                ),
-                Text(
-                  'BMI calculator',
-                  style: TextStyle(
-                      fontSize: 25,
-                      letterSpacing: 1,
-                      fontWeight: FontWeight.w800),
-                ),
-                SizedBox(
-                  height: 50,
-                ),
                 SizedBox(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
