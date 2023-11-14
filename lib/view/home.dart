@@ -1,10 +1,22 @@
+import 'package:bmi_calculator/view/widgets/custon_card.dart';
 import 'package:bmi_calculator/view/widgets/theme_changer_btn.dart';
-import 'package:bmi_calculator/view/widgets/weight_and_age_card.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class HomePage extends StatelessWidget {
+enum Gender { male, female }
+
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+    Gender? selectedGender;
+  int height = 175;
+  int weight = 60;
+  int age = 18; 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,102 +31,40 @@ class HomePage extends StatelessWidget {
           ThemeChangeBtn(),
         ],
       ),
-      body: ListView(
+      body: Column(
         children: [
-          SizedBox(
-            height: 10,
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Expanded(
-                        child: Container(
-                          height: 50,
-                          width: 120,
-                          decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Center(child: Text('Male')),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Expanded(
-                        child: Container(
-                          height: 50,
-                          width: 120,
-                          decoration: BoxDecoration(
-                              color: Colors.blue,
-                              borderRadius: BorderRadius.circular(10)),
-                          child: Center(child: Text('Female')),
-                        ),
-                      ),
-                    ],
+              Expanded(
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                 child: CustomCard(
+                    onPressed: () {
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
+                    },
+                    cusColor: selectedGender == Gender.male
+                        ? Colors.black
+                        : Colors.grey,
+                    customCardChild: IconContent
+                    (FontAwesomeIcons.mars, 'MALE'),
                   ),
                 ),
+                Expanded(
+                  child: CustomCard(
+                    onPressed: () {
+                      setState(() {
+                        selectedGender = Gender.female;
+                      });
+                    },
+                    cusColor: selectedGender == Gender.female
+                        ? Colors.black
+                        : Colors.grey,
+                    customCardChild: IconContent(FontAwesomeIcons.venus, 'FEMALE'),
+                  ),
+                )
               ],
             ),
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Container(
-                width: 170,
-                height: 400,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white),
-                child: Center(
-                    child: Column(
-                  children: [
-                    Text('height'),
-                    Transform(
-                        alignment: Alignment.center,
-                        transform: Matrix4.rotationZ(3.14159 / 2),
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 150.0),
-                          child: LinearProgressIndicator(
-                            minHeight: 25,
-                            backgroundColor: Colors.amberAccent,
-                            borderRadius: BorderRadius.circular(8),
-                          ),
-                        )),
-                  ],
-                )),
-              ),
-              Column(
-                children: [
-                  WeightAndAgeCard(title: 'weight', weight: "70"),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  WeightAndAgeCard(title: 'Age', weight: "20"),
-                ],
-              )
-            ],
-          ),
-          SizedBox(
-            height: 40,
-          ),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 20),
-            height: 50,
-            decoration: BoxDecoration(
-                color: Colors.blue, borderRadius: BorderRadius.circular(10)),
-            child: Center(child: Text('Lets go')),
           ),
         ],
       ),
