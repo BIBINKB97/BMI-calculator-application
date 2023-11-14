@@ -83,7 +83,24 @@ class HomePage extends StatelessWidget {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.white),
-                child: Center(child: Text('height')),
+                child: Center(
+                    child: Column(
+                  children: [
+                    Text('height'),
+                    Transform(
+                        alignment: Alignment.center,
+                        transform: Matrix4.rotationZ(3.14159 / 2),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 150.0),
+                          child: LinearProgressIndicator(
+                            minHeight: 20,
+                            value: 1,
+                            backgroundColor: Colors.amberAccent,
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        )),
+                  ],
+                )),
               ),
               Column(
                 children: [

@@ -13,10 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Bmi calculator',
       darkTheme: lightTheme,
       theme: darkTheme,
-      home: HomePage(),
+      home: HomePage(), 
     );
   }
 }
