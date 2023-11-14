@@ -93,10 +93,9 @@ class HomePage extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 150.0),
                           child: LinearProgressIndicator(
-                            minHeight: 20,
-                            value: 1,
+                            minHeight: 25,
                             backgroundColor: Colors.amberAccent,
-                            borderRadius: BorderRadius.circular(10),
+                            borderRadius: BorderRadius.circular(8),
                           ),
                         )),
                   ],

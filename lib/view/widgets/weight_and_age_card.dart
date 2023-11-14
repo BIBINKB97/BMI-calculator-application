@@ -19,6 +19,7 @@ class WeightAndAgeCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
+          
           Text(
             title,
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
