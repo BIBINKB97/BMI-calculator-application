@@ -19,10 +19,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-    Gender? selectedGender;
+  Gender? selectedGender;
   int height = 175;
   int weight = 60;
-  int age = 18; 
+  int age = 18;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
             child: Row(
               children: <Widget>[
                 Expanded(
-                 child: CustomCard(
+                  child: CustomCard(
                     onPressed: () {
                       setState(() {
                         selectedGender = Gender.male;
@@ -53,7 +53,8 @@ class _HomePageState extends State<HomePage> {
                     cusColor: selectedGender == Gender.male
                         ? kActiveCardColor
                         : kInactiveCardColor,
-                    customCardChild: IconContent(FontAwesomeIcons.mars, label: 'MALE'),
+                    customCardChild:
+                        IconContent(FontAwesomeIcons.mars, label: 'MALE'),
                   ),
                 ),
                 Expanded(
@@ -66,7 +67,8 @@ class _HomePageState extends State<HomePage> {
                     cusColor: selectedGender == Gender.female
                         ? kActiveCardColor
                         : kInactiveCardColor,
-                    customCardChild: IconContent(FontAwesomeIcons.venus, label: 'FEMALE'),
+                    customCardChild:
+                        IconContent(FontAwesomeIcons.venus, label: 'FEMALE'),
                   ),
                 )
               ],
@@ -112,7 +114,6 @@ class _HomePageState extends State<HomePage> {
                       value: height.toDouble(),
                       min: 100.0,
                       max: 220.0,
-                     
                       onChanged: (double newValue) {
                         setState(() {
                           height = newValue.round(); // enable the slide
@@ -145,10 +146,12 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             CustomButton(
-                              icon: FontAwesomeIcons.plus,
+                              icon: Icons.add,
                               onPressed: () {
                                 setState(() {
-                                  weight++;
+                                  if (weight > 200) {
+                                    weight++;
+                                  }
                                 });
                               },
                             ),
@@ -156,10 +159,12 @@ class _HomePageState extends State<HomePage> {
                               width: 10.0,
                             ),
                             CustomButton(
-                              icon: FontAwesomeIcons.minus,
+                              icon: Icons.minimize,
                               onPressed: () {
                                 setState(() {
-                                  weight--;
+                                  if (weight > 0) {
+                                    weight--;
+                                  }
                                 });
                               },
                             ),
@@ -187,10 +192,12 @@ class _HomePageState extends State<HomePage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             CustomButton(
-                              icon: FontAwesomeIcons.plus,
+                              icon: Icons.add,
                               onPressed: () {
                                 setState(() {
-                                  age++;
+                                  if (age < 100) {
+                                    age++;
+                                  }
                                 });
                               },
                             ),
@@ -198,10 +205,12 @@ class _HomePageState extends State<HomePage> {
                               width: 10.0,
                             ),
                             CustomButton(
-                              icon: FontAwesomeIcons.minus,
+                              icon: Icons.minimize,
                               onPressed: () {
                                 setState(() {
-                                  age--;
+                                  if (age > 0) {
+                                    age--;
+                                  }
                                 });
                               },
                             ),
@@ -214,13 +223,20 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          SubmitButton(buttonTitle: 'CALCULATE',onTap: (){
-            Calculator calc = Calculator(height: height, weight: weight);
-            Navigator.push(context, MaterialPageRoute(builder: (context) => ResultsPage(
-              bmiResult: calc.calculateBMI().toString(),
-              resultText: calc.getResult(),
-              interpretation: calc.getInterpretation(),)));
-          },),
+          SubmitButton(
+            buttonTitle: 'CALCULATE',
+            onTap: () {
+              Calculator calc = Calculator(height: height, weight: weight);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => ResultsPage(
+                            bmiResult: calc.calculateBMI().toString(),
+                            resultText: calc.getResult(),
+                            interpretation: calc.getInterpretation(),
+                          )));
+            },
+          ),
         ],
       ),
     );
