@@ -5,8 +5,8 @@ class CustomCard extends StatelessWidget {
   final Widget? customCardChild;
   final VoidCallback? onPressed;
 
-  CustomCard({
-    this.cusColor = const Color(0xff1d1f33),
+   CustomCard({
+   required this. cusColor,
     this.customCardChild,
     this.onPressed,
   });
@@ -15,7 +15,7 @@ class CustomCard extends StatelessWidget {
   Widget build(BuildContext context) => GestureDetector(
         onTap: onPressed,
         child: Container(
-          margin:  EdgeInsets.all(15.0),
+          margin: EdgeInsets.all(15.0),
           decoration: BoxDecoration(
             color: cusColor,
             borderRadius: BorderRadius.circular(10.0),

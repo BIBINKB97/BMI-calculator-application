@@ -108,7 +108,7 @@ class _HomePageState extends State<HomePage> {
                           RoundSliderThumbShape(enabledThumbRadius: 15.0),
                       overlayShape:
                           RoundSliderOverlayShape(overlayRadius: 30.0),
-                      thumbColor: Color(0xFFEB1555),
+                      thumbColor: Color.fromARGB(255, 102, 146, 180),
                     ),
                     child: Slider(
                       value: height.toDouble(),

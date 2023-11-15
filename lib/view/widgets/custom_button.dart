@@ -1,4 +1,3 @@
-
 // ignore_for_file: must_be_immutable, use_key_in_widget_constructors, sort_child_properties_last, prefer_const_constructors
 
 import 'package:flutter/material.dart';
@@ -19,8 +18,8 @@ class CustomButton extends StatelessWidget {
         height: 56.0,
       ),
       onPressed: onPressed,
-      shape: CircleBorder(),
-      fillColor: Color(0xff4c4f5e),
+      shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(40)),
+      fillColor: Color.fromARGB(255, 142, 160, 253),
     );
   }
 }
