@@ -14,7 +14,7 @@ class ThemeChangeBtn extends StatelessWidget {
         Container(
           padding: EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.primaryContainer,
+              color: Theme.of(context).colorScheme.background,
               borderRadius: BorderRadius.circular(15)),
           child: Row(
             children: [
@@ -26,7 +26,9 @@ class ThemeChangeBtn extends StatelessWidget {
                     Icons.dark_mode,
                   )),
               IconButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    themeController.changeTheme();
+                  },
                   icon: Icon(
                     Icons.light_mode,
                   )),

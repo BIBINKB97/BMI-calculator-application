@@ -1,7 +1,7 @@
 
 
 import 'package:bmi_calculator/config/constants.dart';
-import 'package:bmi_calculator/view/widgets/custon_card.dart';
+import 'package:bmi_calculator/view/widgets/custom_card.dart';
 import 'package:bmi_calculator/view/widgets/submit_button.dart';
 import 'package:flutter/material.dart';
 

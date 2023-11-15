@@ -5,7 +5,7 @@ import 'package:bmi_calculator/config/constants.dart';
 import 'package:bmi_calculator/view/results.dart';
 import 'package:bmi_calculator/view/widgets/custom_button.dart';
 import 'package:bmi_calculator/view/widgets/submit_button.dart';
-import 'package:bmi_calculator/view/widgets/custon_card.dart';
+import 'package:bmi_calculator/view/widgets/custom_card.dart';
 import 'package:bmi_calculator/view/widgets/theme_changer_btn.dart';
 import 'package:flutter/material.dart';
 import 'widgets/icon_content.dart';
@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                         ? kActiveCardColor
                         : kInactiveCardColor,
                     customCardChild: IconContent(
-                        icon: Icons.female_rounded, label: 'FEMALE`'),
+                        icon: Icons.female_rounded, label: 'FEMALE'),
                   ),
                 )
               ],
@@ -101,14 +101,15 @@ class _HomePageState extends State<HomePage> {
                   ),
                   SliderTheme(
                     data: SliderTheme.of(context).copyWith(
-                      activeTrackColor: Colors.white,
-                      inactiveTrackColor: Color(0xFF8D8E98),
+                      activeTrackColor:
+                          const Color.fromARGB(255, 249, 243, 243),
+                      inactiveTrackColor: Color.fromARGB(255, 204, 206, 227),
                       overlayColor: Color(0x15EB1555),
                       thumbShape:
-                          RoundSliderThumbShape(enabledThumbRadius: 15.0),
+                          RoundSliderThumbShape(enabledThumbRadius: 20.0),
                       overlayShape:
                           RoundSliderOverlayShape(overlayRadius: 30.0),
-                      thumbColor: Color.fromARGB(255, 102, 146, 180),
+                      thumbColor: Color.fromARGB(255, 191, 176, 255),
                     ),
                     child: Slider(
                       value: height.toDouble(),
@@ -149,9 +150,7 @@ class _HomePageState extends State<HomePage> {
                               icon: Icons.add,
                               onPressed: () {
                                 setState(() {
-                                  if (weight > 200) {
-                                    weight++;
-                                  }
+                                  weight++;
                                 });
                               },
                             ),

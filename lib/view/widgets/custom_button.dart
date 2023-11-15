@@ -7,7 +7,6 @@ class CustomButton extends StatelessWidget {
 
   IconData icon;
   final VoidCallback? onPressed;
-
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
