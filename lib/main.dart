@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Bmi calculator',
-      darkTheme: lightTheme,
-      theme: darkTheme,
-      home: HomePage(), 
+      darkTheme: darkTheme,
+      theme: lightTheme,
+      home: HomePage(),
     );
   }
 }

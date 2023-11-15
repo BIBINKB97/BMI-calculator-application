@@ -4,9 +4,9 @@ import 'package:bmi_calculator/config/constants.dart';
 import 'package:flutter/material.dart';
 
 class IconContent extends StatelessWidget {
-  IconContent(IconData mars, {
-    this.icon,
-    this.label,
+  IconContent({
+    required this.icon,
+    required this.label,
     super.key,
   });
 
@@ -18,7 +18,7 @@ class IconContent extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(icon, size: 80.0),
+        Icon(icon, size: 120.0),
         const SizedBox(
           height: 15.0,
         ),

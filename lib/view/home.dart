@@ -1,13 +1,14 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables
+
 import 'package:bmi_calculator/calculator.dart';
 import 'package:bmi_calculator/config/constants.dart';
 import 'package:bmi_calculator/view/results.dart';
 import 'package:bmi_calculator/view/widgets/custom_button.dart';
 import 'package:bmi_calculator/view/widgets/submit_button.dart';
 import 'package:bmi_calculator/view/widgets/custon_card.dart';
-import 'package:bmi_calculator/view/widgets/icon_content.dart';
 import 'package:bmi_calculator/view/widgets/theme_changer_btn.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'widgets/icon_content.dart';
 
 enum Gender { male, female }
 
@@ -45,17 +46,16 @@ class _HomePageState extends State<HomePage> {
               children: <Widget>[
                 Expanded(
                   child: CustomCard(
-                    onPressed: () {
-                      setState(() {
-                        selectedGender = Gender.male;
-                      });
-                    },
-                    cusColor: selectedGender == Gender.male
-                        ? kActiveCardColor
-                        : kInactiveCardColor,
-                    customCardChild:
-                        IconContent(FontAwesomeIcons.mars, label: 'MALE'),
-                  ),
+                      onPressed: () {
+                        setState(() {
+                          selectedGender = Gender.male;
+                        });
+                      },
+                      cusColor: selectedGender == Gender.male
+                          ? kActiveCardColor
+                          : kInactiveCardColor,
+                      customCardChild:
+                          IconContent(icon: Icons.male_rounded, label: 'MALE')),
                 ),
                 Expanded(
                   child: CustomCard(
@@ -67,8 +67,8 @@ class _HomePageState extends State<HomePage> {
                     cusColor: selectedGender == Gender.female
                         ? kActiveCardColor
                         : kInactiveCardColor,
-                    customCardChild:
-                        IconContent(FontAwesomeIcons.venus, label: 'FEMALE'),
+                    customCardChild: IconContent(
+                        icon: Icons.female_rounded, label: 'FEMALE`'),
                   ),
                 )
               ],
@@ -224,7 +224,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           SubmitButton(
-            buttonTitle: 'CALCULATE',
+            buttonTitle: 'Calculate',
             onTap: () {
               Calculator calc = Calculator(height: height, weight: weight);
               Navigator.push(
