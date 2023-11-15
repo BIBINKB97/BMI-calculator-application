@@ -1,4 +1,4 @@
-import 'package:bmi_calculator/controller/themeController.dart';
+import 'package:bmi_calculator/controller/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

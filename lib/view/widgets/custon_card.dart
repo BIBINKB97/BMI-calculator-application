@@ -5,7 +5,7 @@ class CustomCard extends StatelessWidget {
   final Widget? customCardChild;
   final VoidCallback? onPressed;
 
-   CustomCard({
+   const CustomCard({
    required this. cusColor,
     this.customCardChild,
     this.onPressed,
