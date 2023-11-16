@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   CustomButton({required this.icon, this.onPressed});
-
   IconData icon;
   final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      child: Icon(icon),
+      child: Icon(
+        icon,
+        size: 30,
+      ),
       elevation: 6.0,
       constraints: BoxConstraints.tightFor(
         width: 56.0,
