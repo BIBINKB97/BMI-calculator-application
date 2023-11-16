@@ -1,4 +1,5 @@
-import 'package:bmi_calculator/config/colors.dart';
+
+import 'package:bmi_calculator/config/constants.dart';
 import 'package:flutter/material.dart';
 
 var lightTheme = ThemeData(
