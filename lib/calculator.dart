@@ -1,8 +1,6 @@
-
 import 'dart:math';
 
 class Calculator {
-
   Calculator({required this.height, required this.weight});
 
   final int height;
