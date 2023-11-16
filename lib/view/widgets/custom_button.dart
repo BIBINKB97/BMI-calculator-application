@@ -13,14 +13,14 @@ class CustomButton extends StatelessWidget {
         icon,
         size: 30,
       ),
-      elevation: 6.0,
+      elevation: 5.0,
       constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
+        width: 55.0,
+        height: 55.0,
       ),
       onPressed: onPressed,
-      shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(40)),
-      fillColor: Color.fromARGB(255, 142, 160, 253),
+      shape: ContinuousRectangleBorder(borderRadius: BorderRadius.circular(35)),
+      fillColor: Color.fromARGB(255, 70, 76, 134),
     );
   }
 }

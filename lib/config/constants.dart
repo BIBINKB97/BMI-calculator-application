@@ -13,12 +13,10 @@ const dDivColor = Color(0xffFFFFFF);
 const dFontColor = Color(0xff000000);
 const kBottomContainerHeight = 70.0;
 const kActiveCardColor = Color.fromARGB(255, 144, 150, 214);
-const kInactiveCardColor = Color.fromARGB(255, 108, 116, 203);
-const kBottomContainerColor = Color.fromARGB(255, 108, 116, 203);
+const kInactiveCardColor = Color.fromARGB(255, 70, 76, 134);
+const kBottomContainerColor = Color.fromARGB(255, 70, 76, 134);
 
-const kLabelTextStyle = TextStyle(
-  fontSize: 18.0,
-);
+const kLabelTextStyle = TextStyle(fontSize: 18.0, fontWeight: FontWeight.w600);
 
 const kNumberTextStyle = TextStyle(
   fontSize: 50.0,
